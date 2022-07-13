@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      token: ${{ secrets.ACTIONPAT }}
+      GITHUB_PAT: ${{ secrets.ACTIONPAT }}
 
     steps: 
 
