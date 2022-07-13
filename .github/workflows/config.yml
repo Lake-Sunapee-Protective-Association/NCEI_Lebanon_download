@@ -21,6 +21,7 @@ jobs:
     # create/populate .renviron file
     - name: environ setup
       run: echo GITHUB_PAT = '$GITHIUB_PAT' >> ~/.Renviron
+      shell: bash
     # install packages
     - name: Install packages
       run: |
