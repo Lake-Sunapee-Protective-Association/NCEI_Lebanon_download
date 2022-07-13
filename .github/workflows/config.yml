@@ -24,19 +24,16 @@ jobs:
 
     # install packages
     - name: Install packages
-      shell: Rscript {0}
-      with:
-        token: ${{ secrets.ACTIONPAT }}
       run: |
-        install.packages('tidyverse')
-        install.packages(c('remotes','testthat'), dependencies = T)
-        remotes::install_github('ropensci/rnoaa')
+        R -e install.packages('tidyverse')
+        R -e install.packages(c('remotes','testthat'), dependencies = T)
+        R -e remotes::install_github('ropensci/rnoaa')
+      env:
+        PAT: ${{ secrets.ACTIONPAT }}
 
     # run script
     - name: download and concatenate NCEI data
-      run: |
-        source('download_compile.R')
-      shell: Rscript {0}
+      run: Rscript download_compile.R
 
     #commit files to GH  
     - name: Commit files
