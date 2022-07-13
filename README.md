@@ -28,7 +28,7 @@ Presumably due to differences in elevation, the barometric pressure reported at 
 
 Many variables reported here (like percipitation), can occur as localized events, and given that Lebanon Airport is ~34km away, local records will not be identical to the NCEI records.
 
-All data should be considered preliminary and no QAQC has been completed on them.
+All data should be considered preliminary and no QAQC has been completed on them. 
 
 ## Data Citation
 
