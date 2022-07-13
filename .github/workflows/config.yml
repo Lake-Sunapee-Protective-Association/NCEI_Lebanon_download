@@ -26,7 +26,7 @@ jobs:
     - name: Install packages
       run: |
         install.packages(c('tidyverse', 'devtools'))
-        devtools::install_github('ropensci/rnoaa')
+        devtools::install_github('ropensci/rnoaa', user_auth = NULL)
       shell: Rscript {0}
     # run script
     - name: download and concatenate NCEI data
