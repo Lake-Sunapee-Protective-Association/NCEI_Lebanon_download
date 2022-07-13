@@ -14,9 +14,6 @@ jobs:
 
     runs-on: windows-latest
 
-    env:
-      GITHUB_PAT: ${{ secrets.ACTIONPAT }}
-
     steps: 
 
     # load repo
@@ -24,6 +21,9 @@ jobs:
 
     # setup r
     - uses: r-lib/actions/setup-r@master
+
+      secrets:
+        access-token: ${{ secrets.ACTIONPAT }}
 
     # install packages
     - name: Install packages
