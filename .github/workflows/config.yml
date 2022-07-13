@@ -9,9 +9,14 @@ on:
 
 #create jobs    
 jobs:
+  
   sent: 
+
     runs-on: windows-latest
-    
+
+    env:
+      token: ${{ secrets.ACTIONPAT }}
+
     steps: 
 
     # load repo
@@ -22,8 +27,6 @@ jobs:
 
     # install packages
     - name: Install packages
-      with:
-        credentials: ${{ secrets.ACTIONPAT }}
       run: |
         install.packages('tidyverse')
         install.packages(c('remotes','testthat'), dependencies = T)
