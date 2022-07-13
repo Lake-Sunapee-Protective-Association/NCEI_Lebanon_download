@@ -3,7 +3,7 @@ name: weekly download of NCEI Lebanon data
 #when it should run
 on:
   schedule:
-    - cron: "0 5 7 * *" #run every 7 days at 5 UTC / midnight EST
+    - cron: "0 5 * * 1" #run every Monday at 5 UTC / midnight EST
   push:
     branches: main #run when there's a push on the main branch
 
