@@ -22,11 +22,11 @@ jobs:
     # setup r
     - uses: r-lib/actions/setup-r@master
 
+    # install packages
+    - name: Install packages
       secrets:
         access-token: ${{ secrets.ACTIONPAT }}
 
-    # install packages
-    - name: Install packages
       run: |
         install.packages('tidyverse')
         install.packages(c('remotes','testthat'), dependencies = T)
