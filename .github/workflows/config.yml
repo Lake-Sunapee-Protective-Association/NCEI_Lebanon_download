@@ -13,6 +13,8 @@ jobs:
   sent: 
 
     runs-on: windows-latest
+      env:
+        GITHUB_PAT: ${{ secrets.ACTIONPAT }}
 
     steps: 
 
@@ -28,8 +30,6 @@ jobs:
         install.packages('tidyverse')
         install.packages(c('remotes','testthat'), dependencies = T)
         remotes::install_github('ropensci/rnoaa')
-      env:
-        PAT: ${{ secrets.ACTIONPAT }}
       shell: Rscript {0}
 
     # run script
