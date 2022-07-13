@@ -1,6 +1,6 @@
 # NCEI_Lebanon_download
 
-Weekly Download of NCEI data at Lebanon Airport using the rnoaa package (from GH, not from CRAN).
+Weekly Download of NOAA NCEI data at Lebanon Airport using the rnoaa package (from GH, not from CRAN).
 
 ## Purpose
 
