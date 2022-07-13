@@ -9,10 +9,8 @@ on:
 
 #create jobs    
 jobs:
-  
-  sent: 
-
-    runs-on: windos-latest
+  ncei-download: 
+    runs-on: windows-latest
     env:
       GITHUB_PAT: ${{ secrets.ACTIONPAT }}
     steps: 
