@@ -25,11 +25,12 @@ jobs:
     # install packages
     - name: Install packages
       run: |
-        R install.packages('tidyverse')
-        R install.packages(c('remotes','testthat'), dependencies = T)
-        R remotes::install_github('ropensci/rnoaa')
+        install.packages('tidyverse')
+        install.packages(c('remotes','testthat'), dependencies = T)
+        remotes::install_github('ropensci/rnoaa')
       env:
         PAT: ${{ secrets.ACTIONPAT }}
+      shell: Rstudio {0}
 
     # run script
     - name: download and concatenate NCEI data
