@@ -24,7 +24,7 @@ jobs:
 
     # install packages
     - name: Install packages
-      secrets:
+      with:
         access-token: ${{ secrets.ACTIONPAT }}
 
       run: |
