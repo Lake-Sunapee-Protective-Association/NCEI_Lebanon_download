@@ -24,7 +24,7 @@ jobs:
     - name: Install packages
       run: |
         install.packages('tidyverse')
-        remotes::install_github("ropensci/rnoaa")
+        install.packages('remotes')
       shell: Rscript {0}
 
     # run script
@@ -36,8 +36,8 @@ jobs:
     #commit files to GH  
     - name: Commit files
       run: |
-        git config --local user.name steeleb
-        git config --local user.email "steeleb@caryinstitute.org"
-        git add NCEI*
+        git config --local user.name actions-user
+        git config --local user.email "actions@github.com"
+        git add NCEI_Lebanon_hourly_*
         git commit -am "gh action weekly NCEI download $(date)"
         git push origin main

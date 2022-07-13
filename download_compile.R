@@ -1,5 +1,5 @@
 library(tidyverse)
-# remotes::install_github("ropensci/rnoaa") #cran version gets upset with characters in numeric columns, must use dev version
+remotes::install_github("ropensci/rnoaa") #cran version gets upset with characters in numeric columns, must use dev version
 library(rnoaa)
 
 #today's date
@@ -41,14 +41,16 @@ action_add <- now_hourly %>%
 
 #concatenate with existing file, if available
 if(length(action_file>0)){
-  action_file <- full_join(hist_file, action_add) %>% 
+  new_action_file <- full_join(hist_file, action_add) %>% 
     arrange(datetime)
+  unlink(action_file) #remove previous file from file
 } else {
-  action_file = action_add%>% 
+  new_action_file = action_add%>% 
     arrange(datetime)
 }
 
-firstdate = as.Date(min(action_file$datetime))
-lastdate = as.Date(max(action_file$datetime))
+firstdate = as.Date(min(new_action_file$datetime))
+lastdate = as.Date(max(new_action_file$datetime))
 
-write.csv(action_file, paste0('NCEI_Lebanon_hourly_', firstdate, '_', lastdate, '.csv'), row.names = F)
+write.csv(new_action_file, paste0('NCEI_Lebanon_hourly_', firstdate, '_', lastdate, '.csv'), row.names = F)
+
