@@ -1,0 +1,43 @@
+name: weekly download of NCEI Lebanon data
+
+#when it should run
+on:
+  schedule:
+    - cron: "0 5 7 * *" #run every 7 days at 5 UTC / midnight EST
+  push:
+    branches: main #run when there's a push on the main branch
+
+#create jobs    
+jobs:
+  sent: 
+    runs-on: windows-latest
+    
+    steps: 
+
+    # load repo
+    - uses: actions/checkout@master
+
+    # setup r
+    - uses: r-lib/actions/setup-r@master
+
+    # install packages
+    - name: Install packages
+      run: |
+        install.packages('tidyverse')
+        remotes::install_github("ropensci/rnoaa")
+      shell: Rscript {0}
+
+    # run script
+    - name: download and concatenate NCEI data
+      run: |
+        source('download_compile.R')
+      shell: Rscript {0}
+
+    #commit files to GH  
+    - name: Commit files
+      run: |
+        git config --local user.name steeleb
+        git config --local user.email "steeleb@caryinstitute.org"
+        git add NCEI*
+        git commit -am "gh action weekly NCEI download $(date)"
+        git push origin main
