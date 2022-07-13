@@ -22,6 +22,8 @@ jobs:
 
     # install packages
     - name: Install packages
+      with:
+        credentials: ${{ secrets.ACTIONPAT }}
       run: |
         install.packages('tidyverse')
         install.packages(c('remotes','testthat'), dependencies = T)
