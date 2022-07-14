@@ -23,7 +23,7 @@ jobs:
       run: |
         Sys.setenv(GITHUB_PAT = '$GITHUB_PAT')
         install.packages(c('tidyverse', 'remotes'), dependencies = T)
-        remotes::install_github('ropensci/rnoaa')
+        remotes::install_github("ropensci/rnoaa", dependencies = T, upgrade = 'always') 
       shell: Rscript {0}
     # run script
     - name: download and concatenate NCEI data

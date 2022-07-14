@@ -1,5 +1,6 @@
+library(remotes)
 library(tidyverse)
-# remotes::install_github("ropensci/rnoaa") #cran version gets upset with characters in numeric columns, must use dev version
+remotes::install_github("ropensci/rnoaa", dependencies = T, upgrade = 'always') #cran version gets upset with characters in numeric columns, must use dev version
 library(rnoaa)
 
 #today's date
