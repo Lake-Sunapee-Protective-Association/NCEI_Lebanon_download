@@ -10,7 +10,7 @@ on:
 #create jobs    
 jobs:
   ncei-download: 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       PAT: ${{ secrets.ACTIONPAT }} #MUST HAVE READ PUBLIC PERMISSIONS
     steps: 
@@ -23,7 +23,7 @@ jobs:
       run: |
         Sys.setenv(GITHUB_PAT = '$PAT')
         install.packages(c('tidyverse', 'remotes'), dependencies = T)
-        remotes::install_github("r-lib/devtools") 
+        remotes::install_github("ropensci/rnoaa") 
       shell: Rscript {0}
     # run script
     - name: download and concatenate NCEI data
