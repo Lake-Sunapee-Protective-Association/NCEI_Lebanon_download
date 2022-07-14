@@ -12,7 +12,7 @@ jobs:
   ncei-download: 
     runs-on: windows-latest
     env:
-      GITHUB_PAT: ${{ secrets.ACTIONPAT }}
+      PAT: ${{ secrets.ACTIONPAT }}
     steps: 
     # load repo
     - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
     # install packages
     - name: Install packages
       run: |
-        Sys.unsetenv('GITHUB_PAT')
+        Sys.setenv(GITHUB_PAT = '$PAT')
         install.packages(c('tidyverse', 'devtools'), dependencies = T)
         devtools::install_github("ropensci/rnoaa") 
       shell: Rscript {0}
