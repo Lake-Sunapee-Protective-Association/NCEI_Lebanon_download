@@ -20,7 +20,7 @@ now <- read.csv(file.path(lcd_cache$cache_path_get(), file))
 
 #get column names
 header <- colnames(now)[1:7]
-hourly <- colnames(now)[grepl('hourly', colnames(now))]
+hourly <- colnames(now)[grepl('Hourly', colnames(now))]
 
 
 #subset for hourly data only
@@ -29,8 +29,8 @@ now_hourly <- now %>%
 
 #format datetime
 now_hourly <- now_hourly %>% 
-  mutate(datetime = as.POSIXct(date, format = '%Y-%m-%d %H:%M:%S', tz = 'Etc/GMT+5')) %>% 
-  select(-date)
+  mutate(datetime = as.POSIXct(DATE, format = '%Y-%m-%dT%H:%M:%S', tz = 'Etc/GMT+5')) %>% 
+  select(-DATE)
 
 #point to files
 action_file <- list.files(pattern = '.csv')
