@@ -10,7 +10,7 @@ on:
 #create jobs    
 jobs:
   ncei-download: 
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     env:
       PAT: ${{ secrets.ACTIONPAT }} #MUST HAVE READ PUBLIC PERMISSIONS
     steps: 
