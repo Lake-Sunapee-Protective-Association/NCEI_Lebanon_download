@@ -10,9 +10,7 @@ on:
 #create jobs    
 jobs:
   ncei-download: 
-    runs-on: ubuntu-latest
-    env:
-      PAT: ${{ secrets.ACTIONPAT }} #MUST HAVE READ PUBLIC PERMISSIONS
+    runs-on: windows-latest
     steps: 
     # load repo
     - uses: actions/checkout@v2

@@ -1,6 +1,6 @@
 # NCEI_Lebanon_download
 
-Weekly Download of NOAA NCEI data at Lebanon Airport using the rnoaa package (from GH, not from CRAN).
+Weekly Download of NOAA NCEI data at Lebanon Airport using the rnoaa package
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Repository maintained by B. Steele (steeleb@caryinstitute.org).
 
 ## File Descriptions
 
-download_compile.R: This script uses to rnoaa package to access the lcd data for Lebanon Airport, collates with existing data, and saves the file.
+download_compile.R: This script uses to rnoaa package to access the lcd data for Lebanon Airport, collates with existing data, and saves the file. Note that this uses the CRAN version and a very annoying workaround to access the cache file when you run lcd(). Hopefully a release in the near future will solve this bug. It has been reported to ropensci. If you aren't running on virtual machine (which requires PAT's which are currently being really funky, too), you can just grab the latest verstion at github (code commented in this file).
 
 NCEI_Lebanon_hourly_*DATE*_*DATE*.csv: This file contains all data obtained using ther rnoaa package, via the GitHub action. The dates represent the first and last dates included in the file.
 

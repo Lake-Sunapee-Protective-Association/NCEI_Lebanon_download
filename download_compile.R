@@ -1,5 +1,6 @@
 library(tidyverse)
-# remotes::install_github("ropensci/rnoaa", dependencies = T, upgrade = 'always') #cran version gets upset with characters in numeric columns, must use dev version
+# remotes::install_github("ropensci/rnoaa", dependencies = T, upgrade = 'always') #cran version gets upset with numeric in character columns, 
+ # must use dev version to eliminate bug, but github pat issues, soooooo see workaround below
 library(rnoaa)
 
 #today's date
@@ -7,11 +8,19 @@ today <- Sys.Date()
 
 #get current year lcd data
 now <-  lcd(station = '72611694765',
-           year = as.numeric(format(today, '%Y')))
+           year = as.numeric(format(today, '%Y')),
+           coltypes = coltypes)
+
+#this will only chache a download. we will now read in based on cache location. this is a bug in the rnoaa package, and until the current dev branch is published,
+#we're using this stupid method.
+file <- list.files(lcd_cache$cache_path_get())
+
+now <- read.csv(file.path(lcd_cache$cache_path_get(), file))
 
 #get column names
 header <- colnames(now)[1:7]
 hourly <- colnames(now)[grepl('hourly', colnames(now))]
+
 
 #subset for hourly data only
 now_hourly <- now %>% 
