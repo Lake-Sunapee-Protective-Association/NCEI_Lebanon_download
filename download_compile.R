@@ -8,8 +8,7 @@ today <- Sys.Date()
 
 #get current year lcd data
 now <-  lcd(station = '72611694765',
-           year = as.numeric(format(today, '%Y')),
-           coltypes = coltypes)
+           year = as.numeric(format(today, '%Y')))
 
 #this will only chache a download. we will now read in based on cache location. this is a bug in the rnoaa package, and until the current dev branch is published,
 #we're using this stupid method.
