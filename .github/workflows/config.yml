@@ -12,7 +12,7 @@ jobs:
   ncei-download: 
     runs-on: windows-latest
     env:
-      PAT: ${{ secrets.ACTIONPAT }}
+      PAT: ${{ secrets.ACTIONPAT }} #MUST HAVE READ PUBLIC PERMISSIONS
     steps: 
     # load repo
     - uses: actions/checkout@v2
