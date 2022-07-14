@@ -7,7 +7,7 @@ library(rnoaa)
 today <- Sys.Date()
 
 #get current year lcd data
-try(
+try( #need this here to not fail GH action
 now <-  lcd(station = '72611694765',
            year = as.numeric(format(today, '%Y')))
 )

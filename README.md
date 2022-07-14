@@ -16,7 +16,7 @@ NCEI_Lebanon_hourly_*DATE*_*DATE*.csv: This file contains all data obtained usin
 
 ### historical folder
 
-This folder contains historical LCD data from Lebanon Airport. Note that the column names here are in CamelCase and will need to be adjusted to be merged with the action file above. 
+This folder contains historical LCD data from Lebanon Airport. 
 
 The provided script was used to collate the data from manual downloads from the NCEI LCD website (https://www.ncdc.noaa.gov/cdo-web/datatools/lcd). Collation and use of the provided script was performed on B Steele's local machine. Contact for upstream files, if needed.
 
