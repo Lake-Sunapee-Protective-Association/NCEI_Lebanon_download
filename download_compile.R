@@ -38,7 +38,8 @@ historical_file <- list.files(path = 'historical', pattern = '.csv')
 
 #grab last date in historical file
 if(length(action_file>0)){
-  hist_file <- read.csv(action_file)
+  hist_file <- read.csv(action_file) %>% 
+    mutate(datetime = as.POSIXct(datetime, tz = 'Etc/GMT+5'))
   lasttime = last(hist_file$datetime)
 } else {
   hist_file <- read.csv(file.path('historical', historical_file))
